@@ -59,6 +59,8 @@ class BaseIndentCommand(sublime_plugin.TextCommand):
 class AutoIndentCommand(BaseIndentCommand):
     def get_text_type(self, s):
         language = self.language
+        if language == 'mdl':
+            return 'xml'
         if language == 'xml':
             return 'xml'
         if language == 'json':
@@ -110,8 +112,9 @@ class IndentXmlCommand(BaseIndentCommand):
         try:
             s = parseString(s).toprettyxml()
         except ExpatError as err:
-            message = "Invalid XML: %s line:%d:col:%d" % (errors.messages[err.code], err.lineno, err.offset)
+            message = "Invalid XML: %s line:%d:col:%d attempting as JSON" % (errors.messages[err.code], err.lineno, err.offset)
             sublime.status_message(message)
+            IndentJsonCommand(BaseIndentCommand)
             return
         # remove line breaks
         s = re.compile('>\n\s+([^<>\s].*?)\n\s+</', re.DOTALL).sub('>\g<1></', s)
