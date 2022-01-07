@@ -1,0 +1,19 @@
+[
+    {
+        "caption": "Indent XML/JSON",
+        "id": "indentxmljson_context",
+        "children":
+        [
+            {
+                "command": "auto_indent",
+                "id": "indentxmljson_indent",
+                "caption": "Auto Indent"
+            },
+            {
+                "command": "auto_unindent",
+                "id": "indentxmljson_unindent",
+                "caption": "Auto Unindent"
+            },
+        ]
+    }
+]
