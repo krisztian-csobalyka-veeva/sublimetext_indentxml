@@ -27,11 +27,11 @@
                     },
                     {
                         "caption": "Unindent XML",
-                        "command": "unindent_xml"
+                        "command": "un_indent_xml"
                     },
                     {
                         "caption": "Unindent JSON",
-                        "command": "unindent_json"
+                        "command": "un_indent_json"
                     }
                 ]
             }
