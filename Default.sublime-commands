@@ -13,14 +13,14 @@
     },
     {
         "caption": "Auto unindent",
-        "command": "auto_indent"
+        "command": "auto_unindent"
     },
     {
         "caption": "Unindent XML",
-        "command": "indent_xml"
+        "command": "unindent_xml"
     },
     {
         "caption": "Unindent JSON",
-        "command": "indent_json"
+        "command": "unindent_json"
     }    
 ]
