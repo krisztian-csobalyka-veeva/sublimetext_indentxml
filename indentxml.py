@@ -65,7 +65,7 @@ class AutoIndentCommand(BaseIndentCommand):
             return 'xml'
         if language == 'json':
             return 'json'
-        if language == 'plain text' and s:
+        if s:
             if s[0] == '<':
                 return 'xml'
             if s[0] == '{' or s[0] == '[':
@@ -104,9 +104,8 @@ class IndentXmlCommand(BaseIndentCommand):
         try:
             s = parseString(s).toprettyxml()
         except ExpatError as err:
-            message = "Invalid XML: %s line:%d:col:%d attempting as JSON" % (errors.messages[err.code], err.lineno, err.offset)
+            message = "Invalid XML: %s line:%d:col:%d" % (errors.messages[err.code], err.lineno, err.offset)
             sublime.status_message(message)
-            IndentJsonCommand(BaseIndentCommand)
             return
         # remove line breaks
         s = re.compile('>\n\s+([^<>\s].*?)\n\s+</', re.DOTALL).sub('>\g<1></', s)
